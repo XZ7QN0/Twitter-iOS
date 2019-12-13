@@ -24,11 +24,11 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented required user stories:
 
-<img src='https://imgur.com/FIgAFiY.gif' title='Twitter Walkthrough' width='' alt='Twitter Initial Walkthrough' />
+<img src='https://imgur.com/FIgAFiY.gifv' title='Twitter Walkthrough' width='' alt='Twitter Initial Walkthrough' />
 
 Here's a walkthrough of implemented bonus user stories:
 
-<img src='https://imgur.com/Pz2orto.gif' title='Twitter Reload Walkthrough' width='' alt='Twitter Load Feed Walkthrough' />
+<img src='https://imgur.com/Pz2orto.gifv' title='Twitter Reload Walkthrough' width='' alt='Twitter Load Feed Walkthrough' />
 
 ### Notes
 One issue that I was having was setting the Status Bar to be the same color as the Navigation Bar in the Navigation Controller. During the [Twitter - 3: Logout](https://www.youtube.com/watch?v=OmGebf_602k&list=PLrT2tZ9JRrf76ZFzfHPBNTUnmROWmxTYD&index=3) (at 2:30) the Navigation Bar gets its color changed, but the Status Bar's color didn't change in my project. What I had to do was set the Navigation Controller's Presentation to Full Screen (found in the Navigation Controller's Attributes inspector).
