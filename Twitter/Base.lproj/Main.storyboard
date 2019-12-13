@@ -52,7 +52,7 @@
             <objects>
                 <tableViewController id="yB9-ce-lOn" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="T4P-xT-FY1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -82,6 +82,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ks1-TI-g9l">
+                                            <rect key="frame" x="322" y="11" width="64" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="dKe-Ns-9ML" firstAttribute="leading" secondItem="Cwc-B1-OcQ" secondAttribute="trailing" constant="8" id="0yH-w7-3Co"/>
@@ -89,14 +95,17 @@
                                         <constraint firstItem="Cwc-B1-OcQ" firstAttribute="leading" secondItem="U4x-O0-dqW" secondAttribute="leadingMargin" id="BQG-NA-kmM"/>
                                         <constraint firstItem="f95-Gc-4yj" firstAttribute="leading" secondItem="Cwc-B1-OcQ" secondAttribute="trailing" constant="8" id="GmB-5p-F7O"/>
                                         <constraint firstItem="f95-Gc-4yj" firstAttribute="bottom" secondItem="U4x-O0-dqW" secondAttribute="bottomMargin" id="Wsi-ok-V6x"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ks1-TI-g9l" secondAttribute="trailing" constant="8" id="Xd4-RM-A4X"/>
                                         <constraint firstItem="f95-Gc-4yj" firstAttribute="top" secondItem="dKe-Ns-9ML" secondAttribute="bottom" constant="4" id="iHH-mN-q6y"/>
                                         <constraint firstItem="Cwc-B1-OcQ" firstAttribute="top" secondItem="U4x-O0-dqW" secondAttribute="topMargin" id="jzl-uh-dPw"/>
+                                        <constraint firstItem="ks1-TI-g9l" firstAttribute="top" secondItem="U4x-O0-dqW" secondAttribute="topMargin" id="qt1-j5-svo"/>
                                         <constraint firstItem="dKe-Ns-9ML" firstAttribute="top" secondItem="U4x-O0-dqW" secondAttribute="topMargin" id="y9T-RB-ihc"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="profileImageView" destination="Cwc-B1-OcQ" id="9Ut-4d-a9Y"/>
                                     <outlet property="tweetContentLabel" destination="f95-Gc-4yj" id="k9a-iO-Ucd"/>
+                                    <outlet property="tweetDateLabel" destination="ks1-TI-g9l" id="en5-T2-MKv"/>
                                     <outlet property="userNameLabel" destination="dKe-Ns-9ML" id="xQ3-Qa-TOI"/>
                                 </connections>
                             </tableViewCell>
@@ -122,9 +131,9 @@
         <!--Navigation Controller-->
         <scene sceneID="vZl-TJ-qO6">
             <objects>
-                <navigationController id="Swu-gn-ECa" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2lx-mx-RLx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                <navigationController modalPresentationStyle="fullScreen" id="Swu-gn-ECa" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="2lx-mx-RLx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.67450980390000004" blue="0.93333333330000001" alpha="0.54901960780000003" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -134,6 +143,9 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2bR-hR-RSf">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="yB9-ce-lOn" kind="relationship" relationship="rootViewController" id="RZ1-QE-Z7q"/>
                     </connections>
