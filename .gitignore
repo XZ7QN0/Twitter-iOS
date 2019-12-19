@@ -69,3 +69,4 @@ fastlane/test_output
 
 # Twitter image assets
 twitter_assets/
+.DS_Store
