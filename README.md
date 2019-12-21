@@ -2,7 +2,8 @@
 
 This is a basic twitter app to view, compose, favorite, and retweet tweets.
 
-Time spent: **3.4** hours spent in total
+Time spent: **3.4** hours spent in total (required user stories)
+Time spent: **11** hours spent in total (bonus user stories)
 
 ## User Stories
 
@@ -14,19 +15,27 @@ The following **required** functionality is completed:
 
 The following **bonus** features are implemented:
 
-- [ ] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140) (2pts)
-- [ ] User can view their profile in a profile tab. (3pts)
+- [x] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of ~140~ 280) (2pts)
+- [x] User can view their profile in a profile tab. (3pts)
 - [ ] User sees embedded images in tweet if available. (3pts)
 
 ## Video Walkthrough
 
 Here's a walkthrough of tweeting:
 
-<img src='https://imgur.com/YfSjlqX.gif' title='Favoriting and Retweeting' width='250px' alt='Favoriting and Retweeting' />
+<img src='https://imgur.com/YfSjlqX.gif' title='Tweeting' width='250px' alt='Tweeting' />
 
 Here's a walkthrough of favoriting and retweeting:
 
 <img src='https://imgur.com/Ixn9OvE.gif' title='Favoriting and Retweeting' width='250px' alt='Favoriting and Retweeting' />
+
+Here's a walkthrough of tweeting with the character count:
+
+<img src='https://imgur.com/TiCMKt2.gif' title='Tweet Character Count' width='250px' alt='Tweet Character Count' />
+
+Here's a walkthrough of a user profile:
+
+<img src='https://imgur.com/lM5Vk43.gif' title='Twitter User Profile' width='250px' alt='Twitter User Profile' />
 
 ### Notes
 An issue I had was getting the Tweet Table View Controller to refresh and update after composing a tweet. The tweet would not immediately show up after having created it. This issue turned out to be the same issue that I had earlier, in changing the Navigation Controller's Presentation to Full Screen. Once that was changed, the Twitter Feed was automatically getting updated after composing said tweet.

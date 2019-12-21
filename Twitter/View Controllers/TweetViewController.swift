@@ -8,15 +8,17 @@
 
 import UIKit
 
-class TweetViewController: UIViewController {
+class TweetViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var tweetTextView: UITextView!
+    @IBOutlet weak var tweetCounter: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         tweetTextView.becomeFirstResponder()
+        self.tweetTextView.delegate = self
+        self.tweetTextView.layer.borderWidth = 1.0
     }
     
     // Cancels the tweet and dismisses the controller
@@ -37,14 +39,35 @@ class TweetViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // Set Twitter's max character limit
+        let characterLimit = 280
+        
+        // Counts number of characters are left for Tweet feed
+        let currentText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfCharacters = characterLimit - currentText.count
+        tweetCounter.text = String("\(numberOfCharacters) / \(characterLimit)")
+
+        // Gets current tweet, use empty string if failed
+        let tweetText = textView.text ?? ""
+        
+        // Read the range they are trying to change
+        guard let stringRange = Range(range, in: tweetText) else {
+            return false
+        }
+        
+        // Add their new text to the existing text
+        let updatedTweet = tweetText.replacingCharacters(in: stringRange, with: text)
+
+        // Checks that result is less than character limit
+        return updatedTweet.count < characterLimit
     }
-    */
-
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        // Change the text view's design properties
+        let twitterColor = UIColor(red: 0.0, green: 0.6745, blue: 0.9333, alpha: 1.0)
+        textView.layer.borderColor = twitterColor.cgColor
+        textView.layer.cornerRadius = 15
+    }
 }

@@ -89,13 +89,6 @@ class HomeTableViewController: UITableViewController {
         }
     }
     
-    // Actions taken when user logs out of Twitter
-    @IBAction func onLogout(_ sender: Any) {
-        TwitterAPICaller.client?.logout()
-        self.dismiss(animated: true, completion: nil)
-        UserDefaults.standard.set(false, forKey: "userLoggedIn")
-    }
-    
     // Sets the TableView cell with Twitter content
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCellTableViewCell

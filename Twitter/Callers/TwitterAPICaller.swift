@@ -29,6 +29,7 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
         TwitterAPICaller.client?.deauthorize()
         TwitterAPICaller.client?.fetchRequestToken(withPath: url, method: "GET", callbackURL: URL(string: "alamoTwitter://oauth"), scope: nil, success: { (requestToken: BDBOAuth1Credential!) -> Void in
             let url = URL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token!)")!
+            print("requestToken: ", requestToken.token!)
             UIApplication.shared.open(url)
         }, failure: { (error: Error!) -> Void in
             print("Error: \(error.localizedDescription)")
@@ -49,7 +50,6 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
     }
     
     func getDictionariesRequest(url: String, parameters: [String:Any], success: @escaping ([NSDictionary]) -> (), failure: @escaping (Error) -> ()){
-        print(parameters)
         TwitterAPICaller.client?.get(url, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
             success(response as! [NSDictionary])
         }, failure: { (task: URLSessionDataTask?, error: Error) in
